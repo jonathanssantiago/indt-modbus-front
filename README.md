@@ -35,39 +35,26 @@ Uma aplicação web moderna para monitoramento de dados de dispositivos IoT em t
 
 ### Instalação
 
-1. Clone o repositório:
-
-```bash
-git clone <url-do-repositorio>
-cd indt-modbus-front
-```
-
-2. Instale as dependências:
+1. Instale as dependências:
 
 ```bash
 npm install
 ```
 
-3. Configure as variáveis de ambiente:
+2. Configure as variáveis de ambiente:
 
-```bash
-cp .env.local.example .env.local
-```
+O projeto utiliza dois arquivos de ambiente:
 
-4. Execute em modo de desenvolvimento:
+- **`.env.development`** - Para desenvolvimento local
+- **`.env.production`** - Para produção e Docker
+
+3. Execute em modo de desenvolvimento:
 
 ```bash
 npm run dev
 ```
 
-5. Acesse a aplicação em [http://localhost:3000](http://localhost:3000)
-
-## 📝 Scripts Disponíveis
-
-- `npm run dev` - Executa em modo desenvolvimento
-- `npm run build` - Gera build de produção
-- `npm run start` - Inicia servidor de produção
-- `npm run lint` - Executa linting do código
+4. Acesse a aplicação em [http://localhost:3000](http://localhost:3000)
 
 ## ⚙️ Configuração
 
@@ -76,9 +63,6 @@ As configurações podem ser ajustadas através das variáveis de ambiente:
 ```env
 # URL do servidor WebSocket
 NEXT_PUBLIC_WEBSOCKET_URL=http://localhost:3003
-
-# Nome da aplicação
-NEXT_PUBLIC_APP_NAME="Modbus IHM"
 
 # Máximo de pontos de dados históricos
 NEXT_PUBLIC_MAX_DATA_POINTS=20
@@ -102,17 +86,6 @@ A aplicação se conecta a um servidor WebSocket que deve fornecer:
 
 - `modbusData`: Dados em tempo real dos sensores
 - `connectionStatus`: Status da conexão Modbus
-
-### Formato dos Dados
-
-```typescript
-interface ModbusData {
-  voltage: number;
-  current: number;
-  temperature: number;
-  timestamp: string;
-}
-```
 
 ## 🎨 Interface
 
@@ -144,24 +117,3 @@ interface ModbusData {
 - `CurrentReadings`: Cards com leituras atuais
 - `Dashboard`: Gráficos históricos
 - `Notification`: Sistema de notificações
-
-## 📦 Build e Deploy
-
-Para gerar o build de produção:
-
-```bash
-npm run build
-npm run start
-```
-
-## 🤝 Contribuição
-
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/MinhaFeature`)
-3. Commit suas mudanças (`git commit -m 'Add: Nova feature'`)
-4. Push para a branch (`git push origin feature/MinhaFeature`)
-5. Abra um Pull Request
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
