@@ -36,7 +36,7 @@ export const useModbusData = () => {
 
     // Verificar conexão inicial
     if (!ws.isConnected()) {
-      setError('Não conectado ao servidor');
+      setError('Não conectado ao dispositivo');
     }
 
     return () => {
