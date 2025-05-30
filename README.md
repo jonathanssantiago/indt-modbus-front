@@ -2,6 +2,8 @@
 
 Uma aplicação web moderna para monitoramento de dados de dispositivos IoT em tempo real, desenvolvida com Next.js, TypeScript e Material-UI.
 
+![monitor-iot](./monitor-iot.gif)
+
 ## 🚀 Características
 
 - **Interface Responsiva**: Design moderno e responsivo com Material-UI
