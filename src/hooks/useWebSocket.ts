@@ -19,7 +19,7 @@ export const useModbusData = () => {
 
     const handleConnectionStatus = (isConnected: boolean) => {
       if (!isConnected) {
-        setError('Conexão perdida com o servidor');
+        setError('Conexão perdida com o dispositivo');
       } else {
         setError(null);
       }

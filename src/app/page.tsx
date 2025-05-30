@@ -75,8 +75,8 @@ export default function Home() {
       <Notification
         message={
           isConnected
-            ? 'Conectado ao servidor'
-            : 'Conexão perdida com o servidor'
+            ? 'Conectado ao dispositivo'
+            : 'Conexão perdida com o dispositivo'
         }
         severity={isConnected ? 'success' : 'error'}
         open={notificationOpen}
