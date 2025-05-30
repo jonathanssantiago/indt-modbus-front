@@ -1,26 +1,95 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Cores principais baseadas na sua paleta */
+  --primary-dark: #003274;
+  --primary-light: #27f19c;
+
+  /* Paleta expandida */
+  --primary-darker: #002054;
+  --primary-medium: #004c9e;
+  --primary-lighter: #0066c8;
+  --primary-pale: #e8f3ff;
+
+  --secondary-darker: #1ac77a;
+  --secondary-medium: #27f19c;
+  --secondary-lighter: #4ff4b0;
+  --secondary-pale: #e8fdf5;
+
+  /* Cores neutras */
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --surface-variant: #f1f5f9;
+  --foreground: #2d3748;
+  --foreground-secondary: #718096;
+  --foreground-muted: #a0aec0;
+
+  /* Cores de status */
+  --success: #27f19c;
+  --success-light: #4ff4b0;
+  --warning: #f6ad55;
+  --error: #e53e3e;
+  --info: #3182ce;
+
+  /* Bordas e sombras */
+  --border: #f1f5f9;
+  --border-light: #f8fafc;
+  --shadow: rgba(0, 0, 0, 0.06);
+  --shadow-strong: rgba(0, 0, 0, 0.1);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary-dark);
+  --color-secondary: var(--primary-light);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0a0f1a;
+    --surface: #111827;
+    --surface-variant: #1f2937;
+    --foreground: #f8fafc;
+    --foreground-secondary: #cbd5e0;
+    --foreground-muted: #a0aec0;
+    --border: #374151;
+    --border-light: #4b5563;
+    --shadow: rgba(39, 241, 156, 0.1);
+    --shadow-strong: rgba(39, 241, 156, 0.15);
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  line-height: 1.6;
+}
+
+/* Utilitários de cores personalizados */
+.text-primary {
+  color: var(--primary-dark);
+}
+
+.text-secondary {
+  color: var(--primary-light);
+}
+
+.bg-primary {
+  background-color: var(--primary-dark);
+}
+
+.bg-secondary {
+  background-color: var(--primary-light);
+}
+
+.border-primary {
+  border-color: var(--primary-dark);
+}
+
+.border-secondary {
+  border-color: var(--primary-light);
 }
