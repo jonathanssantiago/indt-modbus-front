@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "export": "next build && next export",
     "docker:build": "docker compose build",
     "docker:start": "docker compose up -d",
     "docker:stop": "docker compose down",
