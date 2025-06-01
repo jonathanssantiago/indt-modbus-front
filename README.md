@@ -45,10 +45,18 @@ npm install
 
 2. Configure as variáveis de ambiente:
 
-O projeto utiliza dois arquivos de ambiente:
+O projeto utiliza arquivos de ambiente. Copie os arquivos de exemplo para configurar o ambiente:
 
-- **`.env.development`** - Para desenvolvimento local
-- **`.env.production`** - Para produção e Docker
+```bash
+# Para desenvolvimento local
+cp .env.development .env
+
+# Para produção (quando necessário)
+cp .env.production .env
+```
+
+- **`.env.development`** - Configurações para desenvolvimento local
+- **`.env.production`** - Configurações para produção e Docker
 
 3. Execute em modo de desenvolvimento:
 
