@@ -49,19 +49,23 @@ O projeto utiliza arquivos de ambiente. Copie os arquivos de exemplo para config
 
 ```bash
 # Para desenvolvimento local
-cp .env.development .env
+cp .env.development.example .env
 
 # Para produção (quando necessário)
-cp .env.production .env
+cp .env.production.example .env
 ```
 
 - **`.env.development`** - Configurações para desenvolvimento local
 - **`.env.production`** - Configurações para produção e Docker
 
-3. Execute em modo de desenvolvimento:
+3. Execute o projeto com:
 
 ```bash
+# Ambiente de desenvolvimento
 npm run dev
+
+# Ambiente Docker
+docker compose up
 ```
 
 4. Acesse a aplicação em [http://localhost:3000](http://localhost:3000)
