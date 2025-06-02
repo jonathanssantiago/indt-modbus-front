@@ -1,12 +1,14 @@
-'use client';
-
 import { Inter } from 'next/font/google';
-import { ThemeProvider, CssBaseline } from '@mui/material';
-import { theme } from '../config/theme';
 import { config } from '../config';
+import ClientWrapper from '@/components/ClientWrapper';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
+
+export const metadata = {
+  title: config.app.name,
+  description: 'Monitor de Dispositivos IoT',
+};
 
 export default function RootLayout({
   children,
@@ -15,15 +17,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <head>
-        <title>{config.app.name}</title>
-        <meta name="description" content="Monitor de Dispositivos IoT" />
-      </head>
       <body className={inter.className}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          {children}
-        </ThemeProvider>
+        <ClientWrapper>{children}</ClientWrapper>
       </body>
     </html>
   );

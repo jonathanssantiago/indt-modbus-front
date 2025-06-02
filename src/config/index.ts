@@ -1,4 +1,7 @@
 export const config = {
+  api: {
+    baseUrl: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3003',
+  },
   websocket: {
     url: process.env.NEXT_PUBLIC_WEBSOCKET_URL || 'http://localhost:3003',
     timeout: 5000,

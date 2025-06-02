@@ -1,13 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Box, Container, AppBar, Toolbar, Typography } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import CurrentReadings from '../components/CurrentReadings';
-import ConnectionStatus from '../components/ConnectionStatus';
 import Dashboard from '../components/Dashboard';
 import Notification from '../components/Notification';
 import { useConnectionStatus } from '../hooks/useWebSocket';
-import { config } from '../config';
 
 export default function Home() {
   const { isConnected } = useConnectionStatus();
@@ -34,34 +32,9 @@ export default function Home() {
         flexGrow: 1,
         backgroundColor: '#f8fafc',
         minHeight: '100vh',
+        pt: 2,
       }}
     >
-      <AppBar
-        position="static"
-        elevation={1}
-        sx={{
-          mb: 4,
-          backgroundColor: '#003274',
-          color: '#ffffff',
-          boxShadow: '0 2px 4px rgba(0, 50, 116, 0.1)',
-        }}
-      >
-        <Toolbar>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{
-              flexGrow: 1,
-              fontWeight: 600,
-              color: '#ffffff',
-            }}
-          >
-            {config.app.name}
-          </Typography>
-          <ConnectionStatus />
-        </Toolbar>
-      </AppBar>
-
       <Container maxWidth="lg">
         <Box sx={{ mb: 4 }}>
           <CurrentReadings />
