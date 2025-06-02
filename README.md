@@ -94,13 +94,6 @@ src/
 └── config/                 # Configurações da aplicação
 ```
 
-## 🔄 Funcionalidades WebSocket
-
-A aplicação se conecta a um servidor WebSocket que deve fornecer:
-
-- `modbusData`: Dados em tempo real dos sensores
-- `connectionStatus`: Status da conexão Modbus
-
 ## 🎨 Interface
 
 ### Tela Principal
