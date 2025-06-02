@@ -2,9 +2,9 @@ name: Deploy to AWS S3 and CloudFront
 
 on:
   push:
-    branches: [main, master]
+    branches: [main]
   pull_request:
-    branches: [main, master]
+    branches: [main]
 
 jobs:
   deploy:
@@ -37,27 +37,3 @@ jobs:
           NEXT_PUBLIC_WEBSOCKET_URL: ${{ secrets.NEXT_PUBLIC_WEBSOCKET_URL }}
           NEXT_PUBLIC_APP_NAME: 'Monitor IoT'
           NEXT_PUBLIC_MAX_DATA_POINTS: '20'
-
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
-
-      - name: Deploy to S3
-        run: |
-          aws s3 sync ./out s3://${{ secrets.S3_BUCKET_NAME }} --delete --cache-control max-age=31536000,public
-          aws s3 cp s3://${{ secrets.S3_BUCKET_NAME }}/index.html s3://${{ secrets.S3_BUCKET_NAME }}/index.html --metadata-directive REPLACE --cache-control max-age=0,no-cache,no-store,must-revalidate --content-type text/html
-
-      - name: Invalidate CloudFront
-        run: |
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
-
-      - name: Notify deployment success
-        if: success()
-        run: echo "✅ Deployment successful! Application available at ${{ secrets.CLOUDFRONT_URL }}"
-
-      - name: Notify deployment failure
-        if: failure()
-        run: echo "❌ Deployment failed! Check the logs for more details."
